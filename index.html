@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarath M R - ISTQB® CTFL Certified Automation Test Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            height: fit-content;
+        }
+
+        .content {
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .objective {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .experience-item, .education-item, .project-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .experience-item:hover, .education-item:hover, .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .education-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .institution {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .grade {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .reference-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease;
+        }
+
+        .reference-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .ref-name {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .ref-company {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .ref-title {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .contact-link {
+            color: #27ae60;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume-card">
+            <header class="header">
+                <div class="profile-section">
+                    <h1 class="name">SARATH M R</h1>
+                    <p class="title">ISTQB® CTFL Certified Automation Test Engineer</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>sarathmr1612@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>+91 9447791612</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Thiruvananthapuram, Kerala, India</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="main-content">
+                <aside class="sidebar">
+                    <section class="section">
+                        <h2 class="section-title">Skills</h2>
+                        <div class="skills-grid">
+                            <div class="skill-tag">Java</div>
+                            <div class="skill-tag">Selenium</div>
+                            <div class="skill-tag">jMeter</div>
+                            <div class="skill-tag">Cucumber</div>
+                            <div class="skill-tag">TestNG</div>
+                            <div class="skill-tag">Postman</div>
+                            <div class="skill-tag">Squish</div>
+                            <div class="skill-tag">Jenkins</div>
+                            <div class="skill-tag">MySQL</div>
+                            <div class="skill-tag">PostgreSQL</div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Education</h2>
+                        <div class="education-grid">
+                            <div class="education-item fade-in">
+                                <div class="degree">MBA (Marketing)</div>
+                                <div class="institution">I.G.N.O.U.</div>
+                                <div class="grade">First Class</div>
+                            </div>
+                            <div class="education-item fade-in">
+                                <div class="degree">B.Tech (Computer Science Engineering)</div>
+                                <div class="institution">C.U.S.A.T.</div>
+                                <div class="grade">First Class</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Certifications</h2>
+                        <div class="education-item fade-in">
+                            <div class="degree">ISTQB CTFL Certified Test Engineer</div>
+                            <div class="duration">2019</div>
+                        </div>
+                        <div class="education-item fade-in">
+                            <div class="degree">J.E.E. Certification</div>
+                            <div class="institution">C Dac, Vellayambalam, Tvm</div>
+                            <div class="duration">2012</div>
+                        </div>
+                    </section>
+                </aside>
+
+                <main class="content">
+                    <section class="section">
+                        <h2 class="section-title">Objective</h2>
+                        <div class="objective">
+                            To work in an environment which encourages me to succeed and grow professionally where I can utilize my skills and knowledge appropriately.
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Professional Experience</h2>
+                        
+                        <div class="experience-item">
+                            <h3 class="job-title">Software Engineer (Testing)</h3>
+                            <div class="company">eHealth Kerala</div>
+                            <div class="duration">April 2022 - Present</div>
+                            <p class="description">
+                                Mainly focuses on Software Automation tasks. Selenium Java-based script creation, Automation Test case preparation, load testing using jMeter are main duties and responsibilities.
+                            </p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3 class="job-title">Senior QA Engineer</h3>
+                            <div class="company">QuEST Global (Trivandrum)</div>
+                            <div class="duration">July 2021 - March 2022</div>
+                            <p class="description">
+                                Mainly worked to automate test cases using Squish tool. Responsibilities include creation of automation test cases, conducting automation test case demo to the client, participating in effort calculation analysis and metrics preparation. Worked with Jira, Polarion, Apache Guacamole, Proxmox, Jenkins tools.
+                            </p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3 class="job-title">Senior Project Engineer (Testing)</h3>
+                            <div class="company">eHealth Kerala</div>
+                            <div class="duration">October 2016 - July 2021</div>
+                            <p class="description">
+                                Manual and automated testing of eHealth software with respect to requirements documents, User Stories, and test cases. Wrote test cases and test scenarios for projects including HMS, HMS Kiosk, Telemedicine App, HMS Web portal, Covid Web App, Covid Death App.
+                            </p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3 class="job-title">Graduate Trainee</h3>
+                            <div class="company">C Dac Trivandrum</div>
+                            <div class="duration">July 2013 - July 2014</div>
+                            <p class="description">
+                                Worked as an Android Developer. Focused mainly on an android project (Darpan ANMS), which involves network monitoring.
+                            </p>
+                        </div>
+
+                        <div class="experience-item">
+                            <h3 class="job-title">Java Developer</h3>
+                            <div class="company">Miraglo Software Technologies Pvt Ltd</div>
+                            <div class="duration">June 2012 - June 2013</div>
+                            <p class="description">
+                                Worked mainly on two projects: Kiora Portal v3 and Kiora Rest API service. Used Java programming language with Spring MVC framework and MySQL in backend.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Key Projects</h2>
+                        
+                        <div class="project-item">
+                            <h3 class="job-title">Hospital Management System (HMS)</h3>
+                            <p class="description">
+                                The eHealth project implemented by Kerala State Health Services Department, with aid from Government of India to capture demographic data of citizens using Tab application and automate entire hospital processes using web application to bring all information into a centralized State Health Information system.
+                            </p>
+                        </div>
+
+                        <div class="project-item">
+                            <h3 class="job-title">ViewPoint</h3>
+                            <p class="description">
+                                ViewPoint helps speed up ultrasound reporting and image management. Receives measurements and exam data directly from ultrasound systems and inserts information into reports. Features Quick Reports for commonly used ultrasound exams with predefined content and customizable workflows.
+                            </p>
+                        </div>
+
+                        <div class="project-item">
+                            <h3 class="job-title">ANMS Darpan</h3>
+                            <p class="description">
+                                DARPAN is a real-time network monitoring, visualization and Service Level Agreement monitoring tool developed by C-DAC Thiruvananthapuram. An agentless monitoring tool providing easy-to-use and reliable environment for monitoring network resources, systems, services and applications.
+                            </p>
+                        </div>
+
+                        <div class="project-item">
+                            <h3 class="job-title">Kiora Portal</h3>
+                            <p class="description">
+                                Kiora is an innovative Retail Video Service Platform providing VoD (Video on Demand) services by enabling distribution of digital content through retail procurement points. End-to-End service platform for content owners and distributors to quickly publish and monetize content at retail locations.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">References</h2>
+                        <div class="references-grid">
+                            <div class="reference-item">
+                                <div class="ref-name">Chithra P Mohan</div>
+                                <div class="ref-company">eHealth Kerala</div>
+                                <div class="ref-title">Senior Software Engineer (Testing)</div>
+                                <div>
+                                    <a href="mailto:chithra045@gmail.com" class="contact-link">📧 Email</a>
+                                    <a href="tel:8129099108" class="contact-link">📱 8129099108</a>
+                                </div>
+                            </div>
+                            
+                            <div class="reference-item">
+                                <div class="ref-name">Rajaneesh</div>
+                                <div class="ref-company">Quest Global</div>
+                                <div class="ref-title">Team Lead</div>
+                                <div>
+                                    <a href="mailto:rajaneeshbeck@gmail.com" class="contact-link">📧 Email</a>
+                                    <a href="tel:8089096954" class="contact-link">📱 8089096954</a>
+                                </div>
+                            </div>
+                            
+                            <div class="reference-item">
+                                <div class="ref-name">Jayakrishnan Kunnath</div>
+                                <div class="ref-company">Ernst & Young</div>
+                                <div class="ref-title">Associate Test Manager</div>
+                                <div>
+                                    <a href="mailto:jayakrishnan40u@gmail.com" class="contact-link">📧 Email</a>
+                                    <a href="tel:9072876564" class="contact-link">📱 9072876564</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Add click animation to skill tags
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-3px)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
